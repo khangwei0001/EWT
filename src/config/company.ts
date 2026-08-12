@@ -16,11 +16,10 @@ export const COMPANY = {
   tagline: 'Technology, Structured for Business.',
   positioning: 'Sarawak-focused Technology Project & Solutions Company',
 
-  // Confirmed — Q-01. Wesley Chai (CEO) and Edwin Ting (CTO) were both given as
-  // +60 12-879 7003. The brief's single conversion targets the CEO (the message
-  // opens "Hi Wesley…"), so one number is wired site-wide.
-  ceoWhatsAppNumber: '60128797003',
-  ceoWhatsAppDisplay: '+60 12-879 7003',
+  // Confirmed — Q-01. The brief's single conversion targets the CEO (the
+  // message opens "Hi Wesley…"), so one number is wired site-wide.
+  ceoWhatsAppNumber: '60198683003',
+  ceoWhatsAppDisplay: '+60 19-868 3003',
 
   whatsAppMessage:
     "Hi Wesley, I came across Eastern World Technology's website. I'd like to discuss a potential project with EWT.",

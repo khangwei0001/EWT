@@ -1,0 +1,111 @@
+/* =============================================================================
+   EWT design tokens — docs/02-design-system.md
+   This is the ONLY file in the codebase permitted to contain literal hex values.
+   ========================================================================== */
+
+:root {
+  color-scheme: light; /* Dark mode is out of scope for V1 — docs/02 §13 */
+
+  /* --- Brand ramp: navy (§2.2) ------------------------------------------- */
+  --ewt-navy-900: #0a1628;
+  --ewt-navy-800: #0f2038;
+  --ewt-navy-700: #16294a;
+  --ewt-navy-600: #1d3660;
+  --ewt-navy-500: #274a80;
+
+  /* --- Brand ramp: corporate blue (§2.3) --------------------------------- */
+  --ewt-blue-600: #164a8c;
+  --ewt-blue-500: #1e5aa8;
+  --ewt-blue-400: #2d6cb8;
+  --ewt-blue-300: #4a8ad4;
+  --ewt-blue-100: #e3ecf8;
+  --ewt-blue-050: #f1f6fc;
+
+  /* --- Neutrals, silver, gold (§2.4) ------------------------------------- */
+  --ewt-white: #ffffff;
+  --ewt-grey-050: #f6f8fb;
+  --ewt-grey-100: #edf1f7;
+  --ewt-grey-200: #dde3ec;
+  --ewt-silver-400: #b8c2d0;
+  --ewt-grey-500: #5a6981;
+  --ewt-grey-700: #2e3a4d;
+  --ewt-ink: #16294a;
+  --ewt-gold-500: #c9973b;
+  --ewt-gold-400: #d8ac55;
+
+  /* --- Semantic tokens (§2.5) — components consume these, not the ramps --- */
+  --surface-page: var(--ewt-white);
+  --surface-alt: var(--ewt-grey-050);
+  --surface-card: var(--ewt-white);
+  --surface-card-alt: var(--ewt-grey-100);
+  --surface-inverse: var(--ewt-navy-900);
+  --surface-inverse-alt: var(--ewt-navy-800);
+
+  --text-heading: var(--ewt-ink);
+  --text-body: var(--ewt-grey-700);
+  --text-muted: var(--ewt-grey-500);
+  --text-on-inverse: var(--ewt-white);
+  --text-on-inverse-mut: #c3cede; /* 10.4:1 on navy-900 */
+  --text-link: var(--ewt-blue-500);
+  --text-link-hover: var(--ewt-blue-600);
+  --text-eyebrow: var(--ewt-blue-500);
+
+  --border-default: var(--ewt-grey-200);
+  --border-strong: #c9d2df;
+  --border-inverse: rgba(255, 255, 255, 0.14);
+  --rule-accent-gold: var(--ewt-gold-500);
+
+  --action-primary: var(--ewt-blue-500);
+  --action-primary-hov: var(--ewt-blue-400);
+  --action-primary-act: var(--ewt-blue-600);
+  --action-dark: var(--ewt-navy-700);
+  --action-dark-hov: var(--ewt-navy-600);
+  --action-inverse-hov: #e9eef6; /* white button hover on navy */
+  --surface-chip-hov: #d8e4f5; /* icon chip on card hover */
+  --focus-ring: var(--ewt-blue-500);
+  --focus-ring-inverse: var(--ewt-blue-300);
+
+  /* --- The two permitted gradients (§2.8) -------------------------------- */
+  --gradient-hero: linear-gradient(135deg, #0a1628 0%, #16294a 55%, #1d3660 100%);
+  --gradient-accent-rule: linear-gradient(90deg, #16294a 0%, #2d6cb8 70%, #c9973b 100%);
+
+  /* --- Elevation (§6) ---------------------------------------------------- */
+  --shadow-sm: 0 1px 2px rgba(10, 22, 40, 0.06);
+  --shadow-md: 0 4px 16px rgba(10, 22, 40, 0.08);
+  --shadow-lg: 0 12px 32px rgba(10, 22, 40, 0.1);
+  --shadow-fab: 0 8px 24px rgba(10, 22, 40, 0.22);
+
+  /* --- Radii (§6) -------------------------------------------------------- */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-full: 999px;
+
+  /* --- Containers (§5.1) ------------------------------------------------- */
+  --container-wide: 1280px;
+  --container: 1200px;
+  --container-narrow: 880px;
+  --container-text: 680px;
+
+  /* --- Motion (§8) ------------------------------------------------------- */
+  --motion-fast: 150ms;
+  --motion-base: 250ms;
+  --motion-slow: 400ms;
+  --motion-reveal: 500ms;
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+
+  /* --- Shear (signature) -------------------------------------------------
+     The EWT mark is built from one repeated shear: every stroke of E, W and T
+     leans at the same angle, and the gold accent is a parallelogram cut at it.
+     Decorative rules on this site reuse that single angle so the geometry on
+     the page and the geometry in the logo agree. -------------------------- */
+  --shear: -20deg;
+
+  /* --- Type (§3) --------------------------------------------------------- */
+  --font-heading: var(--font-archivo), system-ui, -apple-system, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  --font-body: var(--font-public-sans), system-ui, -apple-system, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+}

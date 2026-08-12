@@ -1,0 +1,12 @@
+{
+  "name": "web-screenshot-tool",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Lightweight screenshot tool using Puppeteer for capturing full-page website screenshots",
+  "scripts": {
+    "screenshot": "node screenshot.mjs"
+  },
+  "devDependencies": {
+    "puppeteer": "^23.4.0"
+  }
+}

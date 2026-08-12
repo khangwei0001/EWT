@@ -1,26 +1,33 @@
-import { EXTENDED_BIO_FIELDS, PLACEHOLDER_TAG } from '@/content/leadership.fixtures';
 import { PREVIEW_EXTENDED_BIOS } from '@/config/company';
+import type { Person } from '@/content/leadership';
 
 /**
  * DEVELOPMENT PREVIEW ONLY — MUST NOT SHIP (docs/03 §22, docs/09 §6a).
  *
- * Lets the client judge the layout of a fuller founder profile before any real
- * background copy is approved. Every value is bracketed and obviously not
- * factual, the block is dashed rather than solid so it can never be mistaken
- * for published content, and it renders only when
- * NEXT_PUBLIC_PREVIEW_EXTENDED_BIOS=true — absent from the production build.
+ * Renders the founder-supplied extended bio (Background/Experience/Education)
+ * beneath the standard profile bio. Content is real (condensed from the
+ * founders' own LinkedIn profiles) but not yet client-approved for public
+ * launch copy, so this stays gated behind NEXT_PUBLIC_PREVIEW_EXTENDED_BIOS
+ * — absent from the production build.
  */
-export function PlaceholderBioBlock() {
-  if (!PREVIEW_EXTENDED_BIOS) return null;
+export function PlaceholderBioBlock({ person }: { person: Person }) {
+  if (!PREVIEW_EXTENDED_BIOS || !person.extended) return null;
+
+  const { background, experience, education } = person.extended;
+  const fields = [
+    { label: 'Background', value: background },
+    { label: 'Experience', value: experience },
+    { label: 'Education', value: education },
+  ];
 
   return (
     <div className="bio-placeholder">
-      <span className="bio-placeholder__tag type-caption">{PLACEHOLDER_TAG}</span>
+      <span className="bio-placeholder__tag type-caption">MORE INFORMATION</span>
       <dl className="bio-placeholder__fields">
-        {EXTENDED_BIO_FIELDS.map((field) => (
+        {fields.map((field) => (
           <div key={field.label}>
             <dt className="eyebrow bio-placeholder__label">{field.label}</dt>
-            <dd className="type-body-sm muted-text">{field.placeholder}</dd>
+            <dd className="type-body-sm muted-text">{field.value}</dd>
           </div>
         ))}
       </dl>

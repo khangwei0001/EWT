@@ -12,6 +12,16 @@ export type Person = {
   descriptor: string;
   bio: string;
   photo?: { src: string; alt: string };
+  /**
+   * Extended bio detail — condensed from founder-supplied LinkedIn profiles.
+   * Rendered only behind PREVIEW_EXTENDED_BIOS; not yet client-approved for
+   * public launch copy. See docs/09-page-leadership.md §6a.
+   */
+  extended?: {
+    background: string;
+    experience: string;
+    education: string;
+  };
 };
 
 export const LEADERSHIP: Person[] = [
@@ -26,6 +36,12 @@ export const LEADERSHIP: Person[] = [
       src: '/images/leadership/wesley-chai.jpg',
       alt: 'Wesley Chai, Founder & CEO of Eastern World Technology',
     },
+    extended: {
+      background:
+        'Chief Executive Officer at ETD Digital (2025–present); previously Vice President at Petroxoil Sdn Bhd (2023–2025).',
+      experience: 'Executive and business leadership across digital technology and oil & gas.',
+      education: 'Logistics degree, UCSI University (in progress).',
+    },
   },
   {
     slug: 'edwin-ting',
@@ -37,6 +53,13 @@ export const LEADERSHIP: Person[] = [
     photo: {
       src: '/images/leadership/edwin-ting.jpg',
       alt: 'Edwin Ting, Founder & CTO of Eastern World Technology',
+    },
+    extended: {
+      background:
+        'Digital Solutions Consultant at ETD Digital, architecting AI-powered ERPs, e-commerce platforms and custom AI solutions.',
+      experience:
+        'Full-stack and AI engineering across ETD Digital, MindHive and MHub, building cloud-native and agentic AI systems.',
+      education: 'Computer Science, Monash University (in progress).',
     },
   },
 ];

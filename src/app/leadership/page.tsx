@@ -41,7 +41,7 @@ export default function LeadershipPage() {
         </h2>
         {LEADERSHIP.map((person, i) => (
           <PersonProfile key={person.slug} person={person} reversed={i % 2 === 1}>
-            <PlaceholderBioBlock />
+            <PlaceholderBioBlock person={person} />
           </PersonProfile>
         ))}
       </Section>

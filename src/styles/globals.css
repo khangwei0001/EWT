@@ -1444,6 +1444,27 @@
     max-width: 40ch;
   }
 
+  /* Stacked on mobile/tablet; side by side from 1024px, with a hairline
+     divider between columns instead of the stacked top-rule. */
+  .founders-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+
+  @media (min-width: 1024px) {
+    .founders-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 64px;
+      align-items: start;
+    }
+
+    .founders-grid > .person-profile:not(:first-child) {
+      padding-left: 64px;
+      border-left: 1px solid var(--border-default);
+    }
+  }
+
   .person-profile__body {
     max-width: 640px;
   }
@@ -1456,19 +1477,6 @@
   .person-profile__bio {
     margin-top: 20px;
     max-width: 52ch;
-  }
-
-  .person-profile + .person-profile {
-    margin-top: 56px;
-    padding-top: 56px;
-    border-top: 1px solid var(--border-default);
-  }
-
-  @media (min-width: 1024px) {
-    .person-profile + .person-profile {
-      margin-top: 96px;
-      padding-top: 96px;
-    }
   }
 
   .bio-placeholder {

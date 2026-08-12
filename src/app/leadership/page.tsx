@@ -35,15 +35,17 @@ export default function LeadershipPage() {
         image={PAGE_HEADER_IMAGES.leadership}
       />
 
-      <Section labelledBy="founders-heading" width="narrow" topRule>
+      <Section labelledBy="founders-heading" topRule>
         <h2 id="founders-heading" className="sr-only">
           Founders
         </h2>
-        {LEADERSHIP.map((person) => (
-          <PersonProfile key={person.slug} person={person}>
-            <PlaceholderBioBlock person={person} />
-          </PersonProfile>
-        ))}
+        <div className="founders-grid">
+          {LEADERSHIP.map((person) => (
+            <PersonProfile key={person.slug} person={person}>
+              <PlaceholderBioBlock person={person} />
+            </PersonProfile>
+          ))}
+        </div>
       </Section>
 
       <Section tone="alt" labelledBy="involvement-heading">

@@ -1412,30 +1412,13 @@
   }
 
   /* =========================================================================
-     PEOPLE — docs/03 §11
+     PEOPLE — docs/03 §11 — text-only, no photo (portrait removed)
      ====================================================================== */
-  .person-portrait {
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
+  .person-preview {
+    padding: 28px 24px;
+    border: 1px solid var(--border-default);
     border-radius: var(--radius-lg);
-    filter: saturate(0.85);
-  }
-
-  .person-portrait--monogram {
-    display: grid;
-    place-items: center;
-    background: var(--surface-inverse-alt);
-    background-image: repeating-linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.05) 0 1px,
-      transparent 1px 80px
-    );
-    font-family: var(--font-heading);
-    font-size: 48px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    color: var(--ewt-silver-400);
+    background: var(--surface-card);
   }
 
   .person-preview-grid {
@@ -1453,7 +1436,7 @@
   }
 
   .person-preview__role {
-    margin: 20px 0 4px;
+    margin: 0 0 4px;
   }
 
   .person-preview__descriptor {
@@ -1461,59 +1444,13 @@
     max-width: 40ch;
   }
 
-  .person-profile {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  /* An explicit width matters: the reversed row uses an auto inline margin to
-     push the portrait to the outer edge, and an auto-width grid item would
-     collapse to the width of the monogram text instead of filling its column. */
-  .person-profile__media {
-    width: 100%;
-    max-width: 420px;
-  }
-
-  @media (min-width: 1024px) {
-    .person-profile {
-      grid-template-columns: 5fr 1fr 6fr;
-      align-items: center;
-      gap: 0;
-    }
-
-    /* grid-row: 1 is explicit on both children, not left to auto-placement.
-       .person-profile__media always precedes .person-profile__body in the DOM
-       (only their grid-column swaps between the normal and reversed row); with
-       column-only placement, the browser's auto-placement cursor advances past
-       column 1 once media claims column 3 on a reversed row, so body would
-       otherwise be pushed into a new implicit row instead of sharing this one —
-       which broke align-items: center on every reversed founder row. */
-    .person-profile__media {
-      grid-row: 1;
-      grid-column: 1;
-      max-width: 440px;
-    }
-
-    .person-profile__body {
-      grid-row: 1;
-      grid-column: 3;
-    }
-
-    /* justify-self would shrink the media column to its content width, which
-       collapses the monogram panel to nothing — the column order flips instead. */
-    .person-profile.is-reversed .person-profile__media {
-      grid-column: 3;
-      margin-left: auto;
-    }
-
-    .person-profile.is-reversed .person-profile__body {
-      grid-column: 1;
-    }
+  .person-profile__body {
+    max-width: 640px;
   }
 
   .person-profile__descriptor {
     margin-top: 16px;
+    max-width: 56ch;
   }
 
   .person-profile__bio {
@@ -1523,11 +1460,14 @@
 
   .person-profile + .person-profile {
     margin-top: 56px;
+    padding-top: 56px;
+    border-top: 1px solid var(--border-default);
   }
 
   @media (min-width: 1024px) {
     .person-profile + .person-profile {
       margin-top: 96px;
+      padding-top: 96px;
     }
   }
 
